@@ -1,5 +1,6 @@
 import requests 
 import pandas as pd
+from sqlalchemy import create_engine
 
 url = 'https://full-stack-bookstore-mern-backend.vercel.app/api/books'
 header = {"Content-Type": "application/json", "Accept-Encoding": "deflate"}
@@ -8,7 +9,7 @@ def main():
 
     data = res.json()
 
-    df = pd.DataFrame(data)
+    df = pd.json_normalize(data)
 
     transform = {
       'shape': df.shape,
