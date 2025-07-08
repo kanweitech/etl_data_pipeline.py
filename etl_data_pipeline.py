@@ -2,9 +2,9 @@ import requests
 import pandas as pd
 
 url = 'https://full-stack-bookstore-mern-backend.vercel.app/api/books'
-
+header = {"Content-Type": "application/json", "Accept-Encoding": "deflate"}
 def main():
-    res = requests.get(url)
+    res = requests.get(url, headers=header)
 
     data = res.json()
 
